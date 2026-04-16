@@ -1,0 +1,868 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY auto "http://www.automotive-ontology.org/ontology#" >
+]>
+
+<rdf:RDF xmlns="http://www.automotive-ontology.org/ontology#"
+     xml:base="http://www.automotive-ontology.org/ontology"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:auto="http://www.automotive-ontology.org/ontology#">
+
+
+    <!-- Ontology Declaration -->
+
+    <owl:Ontology rdf:about="http://www.automotive-ontology.org/ontology">
+        <rdfs:label>Automotive Domain Ontology</rdfs:label>
+        <rdfs:comment>An OWL ontology covering vehicle components, manufacturing processes,
+        quality assurance, compliance/regulations, and maintenance policies
+        in the automotive industry.</rdfs:comment>
+    </owl:Ontology>
+
+
+
+    <!-- TOP-LEVEL CLASSES -->
+
+    <owl:Class rdf:about="&auto;AutomotiveOntology">
+        <rdfs:label>Automotive Ontology</rdfs:label>
+        <rdfs:comment>Root class for all automotive domain concepts.</rdfs:comment>
+    </owl:Class>
+
+
+    <!-- ASPECT 1 – VEHICLE COMPONENT CLASSIFICATION -->
+
+    <owl:Class rdf:about="&auto;VehicleComponent">
+        <rdfs:subClassOf rdf:resource="&auto;AutomotiveOntology"/>
+        <rdfs:label>Vehicle Component</rdfs:label>
+        <rdfs:comment>Any subsystem or part of a vehicle.</rdfs:comment>
+    </owl:Class>
+
+    <!-- Engine System -->
+    <owl:Class rdf:about="&auto;Engine">
+        <rdfs:subClassOf rdf:resource="&auto;VehicleComponent"/>
+        <rdfs:label>Engine </rdfs:label>
+    </owl:Class>
+
+    <!-- Braking System -->
+    <owl:Class rdf:about="&auto;BrakingSystem">
+        <rdfs:subClassOf rdf:resource="&auto;VehicleComponent"/>
+        <rdfs:label>Braking System</rdfs:label>
+    </owl:Class>
+
+    <!-- Suspension System -->
+    <owl:Class rdf:about="&auto;SuspensionSystem">
+        <rdfs:subClassOf rdf:resource="&auto;VehicleComponent"/>
+        <rdfs:label>Suspension System</rdfs:label>
+    </owl:Class>
+
+    <!-- Electrical System -->
+    <owl:Class rdf:about="&auto;ElectricalSystem">
+        <rdfs:subClassOf rdf:resource="&auto;VehicleComponent"/>
+        <rdfs:label>Electrical System</rdfs:label>
+    </owl:Class>
+
+    <!-- Fuel System -->
+    <owl:Class rdf:about="&auto;FuelSystem">
+        <rdfs:subClassOf rdf:resource="&auto;VehicleComponent"/>
+        <rdfs:label>Fuel System</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- ASPECT 2 – MANUFACTURING PROCESS MANAGEMENT -->
+
+    <owl:Class rdf:about="&auto;ManufacturingProcess">
+        <rdfs:subClassOf rdf:resource="&auto;AutomotiveOntology"/>
+        <rdfs:label>Manufacturing Process</rdfs:label>
+        <rdfs:comment>A workflow stage in vehicle production.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;StampingProcess">
+        <rdfs:subClassOf rdf:resource="&auto;ManufacturingProcess"/>
+        <rdfs:label>Stamping Process</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;WeldingProcess">
+        <rdfs:subClassOf rdf:resource="&auto;ManufacturingProcess"/>
+        <rdfs:label>Welding Process</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;PaintingProcess">
+        <rdfs:subClassOf rdf:resource="&auto;ManufacturingProcess"/>
+        <rdfs:label>Painting Process</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;AssemblyProcess">
+        <rdfs:subClassOf rdf:resource="&auto;ManufacturingProcess"/>
+        <rdfs:label>Assembly Process</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;InspectionProcess">
+        <rdfs:subClassOf rdf:resource="&auto;ManufacturingProcess"/>
+        <rdfs:label>Inspection Process</rdfs:label>
+    </owl:Class>
+
+
+    <!-- ASPECT 3 – QUALITY ASSURANCE AND TESTING -->
+
+
+    <owl:Class rdf:about="&auto;QualityAssurance">
+        <rdfs:subClassOf rdf:resource="&auto;AutomotiveConcept"/>
+        <rdfs:label>Quality Assurance</rdfs:label>
+        <rdfs:comment>Procedures to verify component and vehicle quality.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;VisualInspection">
+        <rdfs:subClassOf rdf:resource="&auto;QualityAssurance"/>
+        <rdfs:label>Visual Inspection</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;DimensionalInspection">
+        <rdfs:subClassOf rdf:resource="&auto;QualityAssurance"/>
+        <rdfs:label>Dimensional Inspection</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;FailureModeEffectAnalysis">
+        <rdfs:subClassOf rdf:resource="&auto;QualityAssurance"/>
+        <rdfs:label>Failure Mode and Effect Analysis (FMEA)</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;NonDestructiveTesting">
+        <rdfs:subClassOf rdf:resource="&auto;QualityAssurance"/>
+        <rdfs:label>Non-Destructive Testing (NDT)</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;EndOfLineTesting">
+        <rdfs:subClassOf rdf:resource="&auto;QualityAssurance"/>
+        <rdfs:label>End-of-Line Testing (EOL)</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- ASPECT 4 – COMPLIANCE AND REGULATIONS  -->
+
+    <owl:Class rdf:about="&auto;Regulation">
+        <rdfs:subClassOf rdf:resource="&auto;AutomotiveConcept"/>
+        <rdfs:label>Compliance and Regulation</rdfs:label>
+        <rdfs:comment>Standards and regulations governing automotive manufacturing.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;QualityManagementStandard">
+        <rdfs:subClassOf rdf:resource="&auto;Regulation"/>
+        <rdfs:label>Quality Management Standard</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;EmissionStandard">
+        <rdfs:subClassOf rdf:resource="&auto;Regulation"/>
+        <rdfs:label>Emission Standard</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;SafetyStandard">
+        <rdfs:subClassOf rdf:resource="&auto;Regulation"/>
+        <rdfs:label>Safety Standard</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;ManufacturingStandard">
+        <rdfs:subClassOf rdf:resource="&auto;Regulation"/>
+        <rdfs:label>Manufacturing Standard</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;EnvironmentalStandard">
+        <rdfs:subClassOf rdf:resource="&auto;Regulation"/>
+        <rdfs:label>Environmental Standard</rdfs:label>
+    </owl:Class>
+
+
+    <!-- ASPECT 5 – SECURITY CONTROLS AND MAINTENANCE POLICIES     -->
+
+
+    <owl:Class rdf:about="&auto;Maintenance">
+        <rdfs:subClassOf rdf:resource="&auto;AutomotiveConcept"/>
+        <rdfs:label>Maintenance</rdfs:label>
+        <rdfs:comment>Scheduled and condition-based maintenance strategies.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;TimeBasedMaintenance">
+        <rdfs:subClassOf rdf:resource="&auto;Maintenance"/>
+        <rdfs:label>Time-Based Maintenance (TBM)</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;FailureFindingMaintenance">
+        <rdfs:subClassOf rdf:resource="&auto;Maintenance"/>
+        <rdfs:label>Failure Finding Maintenance (FFM)</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;RiskBasedMaintenance">
+        <rdfs:subClassOf rdf:resource="&auto;Maintenance"/>
+        <rdfs:label>Risk-Based Maintenance (RBM)</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;ConditionBasedMaintenance">
+        <rdfs:subClassOf rdf:resource="&auto;Maintenance"/>
+        <rdfs:label>Condition-Based Maintenance (CBM)</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="&auto;UsageBasedMaintenance">
+        <rdfs:subClassOf rdf:resource="&auto;Maintenance"/>
+        <rdfs:label>Usage-Based Maintenance</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- OBJECT PROPERTIES  -->
+
+
+    <owl:ObjectProperty rdf:about="&auto;isPartOf">
+        <rdfs:label>is part of</rdfs:label>
+        <rdfs:domain rdf:resource="&auto;VehicleComponent"/>
+        <rdfs:range rdf:resource="&auto;VehicleComponent"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&auto;undergoesTesting">
+        <rdfs:label>undergoes testing</rdfs:label>
+        <rdfs:domain rdf:resource="&auto;VehicleComponent"/>
+        <rdfs:range rdf:resource="&auto;QualityAssurance"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&auto;isProducedBy">
+        <rdfs:label>is produced by</rdfs:label>
+        <rdfs:domain rdf:resource="&auto;VehicleComponent"/>
+        <rdfs:range rdf:resource="&auto;ManufacturingProcess"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&auto;complyWith">
+        <rdfs:label>comply with</rdfs:label>
+        <rdfs:domain rdf:resource="&auto;ManufacturingProcess"/>
+        <rdfs:range rdf:resource="&auto;Regulation"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&auto;requiresMaintenance">
+        <rdfs:label>requires maintenance</rdfs:label>
+        <rdfs:domain rdf:resource="&auto;VehicleComponent"/>
+        <rdfs:range rdf:resource="&auto;Maintenance"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&auto;followsProcess">
+        <rdfs:label>follows process</rdfs:label>
+        <rdfs:domain rdf:resource="&auto;ManufacturingProcess"/>
+        <rdfs:range rdf:resource="&auto;ManufacturingProcess"/>
+    </owl:ObjectProperty>
+
+
+    <!-- DATA PROPERTIES  -->
+
+
+    <owl:DatatypeProperty rdf:about="&auto;componentName">
+        <rdfs:label>component name</rdfs:label>
+        <rdfs:domain rdf:resource="&auto;VehicleComponent"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&auto;standardCode">
+        <rdfs:label>standard code</rdfs:label>
+        <rdfs:domain rdf:resource="&auto;ComplianceRegulation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&auto;maintenanceIntervalDays">
+        <rdfs:label>maintenance interval in days</rdfs:label>
+        <rdfs:domain rdf:resource="&auto;Maintenance"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&auto;processStepNumber">
+        <rdfs:label>process step number</rdfs:label>
+        <rdfs:domain rdf:resource="&auto;ManufacturingProcess"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&auto;testResult">
+        <rdfs:label>test result</rdfs:label>
+        <rdfs:domain rdf:resource="&auto;QualityAssurance"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- INDIVIDUALS – ASPECT 1: VEHICLE COMPONENTS  -->
+
+
+    <!-- Engine System Individuals -->
+    <owl:NamedIndividual rdf:about="&auto;FerrariV12">
+        <rdf:type rdf:resource="&auto;Engine"/>
+        <auto:componentName>Ferrari V12</auto:componentName>
+        <rdfs:comment>High-performance engine delivering exceptional power and speed.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;BMWS70/2">
+        <rdf:type rdf:resource="&auto;Engine"/>
+        <auto:componentName>BMWS70/2</auto:componentName>
+        <rdfs:comment>Precision-built racing engine used in high-end motorsports.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+    <!-- Braking System Individuals -->
+    <owl:NamedIndividual rdf:about="&auto;DiscBrake">
+        <rdf:type rdf:resource="&auto;BrakingSystem"/>
+        <auto:componentName>Disc Brake</auto:componentName>
+        <rdfs:comment> Modern braking system providing strong and reliable stopping power.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;DrumBrake">
+        <rdf:type rdf:resource="&auto;BrakingSystem"/>
+        <auto:componentName>Drum Brake</auto:componentName>
+        <rdfs:comment>Traditional braking system commonly used in older vehicles.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- Suspension System Individuals -->
+    <owl:NamedIndividual rdf:about="&auto;MacPhersonStrut">
+        <rdf:type rdf:resource="&auto;SuspensionSystem"/>
+        <auto:componentName>MacPherson Strut</auto:componentName>
+        <rdfs:comment>Compact suspension system widely used in front-wheel cars.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;DoubleWishbone">
+        <rdf:type rdf:resource="&auto;SuspensionSystem"/>
+        <auto:componentName>Double Wishbone</auto:componentName>
+        <rdfs:comment>Advanced suspension offering better stability and handling control.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- Electrical System Individuals -->
+    <owl:NamedIndividual rdf:about="&auto;Lead-AcidBattery">
+        <rdf:type rdf:resource="&auto;ElectricalSystem"/>
+        <auto:componentName>Lead-Acid Battery</auto:componentName>
+        <rdfs:comment>Conventional battery known for reliability and low cost.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;Lithium-IonBattery">
+        <rdf:type rdf:resource="&auto;ElectricalSystem"/>
+        <auto:componentName>Lithium-Ion Battery</auto:componentName>
+        <rdfs:comment>Lightweight battery with high efficiency and longer lifespan.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- Fuel System Individuals -->
+    <owl:NamedIndividual rdf:about="&auto;High-PressureFuelRail">
+        <rdf:type rdf:resource="&auto;FuelSystem"/>
+        <auto:componentName>High-Pressure Fuel Rail</auto:componentName>
+        <rdfs:comment>Supplies fuel at high pressure to injectors.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;DirectInjector">
+        <rdf:type rdf:resource="&auto;FuelSystem"/>
+        <auto:componentName>Direct Injector</auto:componentName>
+        <rdfs:comment>Injects fuel directly into combustion chamber precisely.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+
+    <!-- INDIVIDUALS – ASPECT 2: MANUFACTURING PROCESSES   -->
+
+
+    <!-- Stamping -->
+    <owl:NamedIndividual rdf:about="&auto;OuterPanelStamping">
+        <rdf:type rdf:resource="&auto;StampingProcess"/>
+        <rdfs:label>Hood Outer Panel Stamping</rdfs:label>
+        <rdfs:comment>Process shaping outer metal panels of vehicle hood.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;DoorInnerFramePress">
+        <rdf:type rdf:resource="&auto;StampingProcess"/>
+        <rdfs:label>Door Inner Frame Press</rdfs:label>
+        <rdfs:comment>Forms structural inner frame of vehicle doors.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- Welding -->
+    <owl:NamedIndividual rdf:about="&auto;SpotWelding">
+        <rdf:type rdf:resource="&auto;WeldingProcess"/>
+         <rdfs:label>Robotic Spot Welding</rdfs:label>
+        <rdfs:comment>Automated welding ensuring consistency and high production efficiency.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;RoofWelding">
+        <rdf:type rdf:resource="&auto;WeldingProcess"/>
+        <rdfs:label>Laser Roof Welding</rdfs:label>
+        <rdfs:comment>High-precision welding used for joining roof components.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- Painting -->
+    <owl:NamedIndividual rdf:about="&auto;E-CoatPriming">
+        <rdf:type rdf:resource="&auto;PaintingProcess"/>
+        <rdfs:label>E-Coat Priming</rdfs:label>
+        <rdfs:comment>Electrocoating process providing corrosion resistance and uniform coverage.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;ClearCoatApplication">
+        <rdf:type rdf:resource="&auto;PaintingProcess"/>
+        <rdfs:label>Clear Coat Application</rdfs:label>
+        <rdfs:comment>Final coating layer giving shine and surface protection.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- Assembly -->
+    <owl:NamedIndividual rdf:about="&auto;EngineMarriage">
+        <rdf:type rdf:resource="&auto;AssemblyProcess"/>
+        <rdfs:label>Engine Marriage</rdfs:label>
+        <rdfs:comment>Process of mounting engine onto vehicle chassis.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;DashboardInstallation">
+        <rdf:type rdf:resource="&auto;AssemblyProcess"/>
+        <rdfs:label>Dashboard Installation</rdfs:label>
+        <rdfs:comment>Installation of dashboard and control systems inside vehicle.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+    <!-- Inspection -->
+    <owl:NamedIndividual rdf:about="&auto;InlineLaserScan">
+        <rdf:type rdf:resource="&auto;InspectionProcess"/>
+        <rdfs:label>Inline Laser Scan</rdfs:label>
+        <rdfs:comment>Real-time inspection ensuring dimensional accuracy during production.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;GapAndFlushCheck">
+        <rdf:type rdf:resource="&auto;InspectionProcess"/>
+        <rdfs:label>Gap and Flush Check</rdfs:label>
+        <rdfs:comment>Ensures uniform spacing and alignment of body panels.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+
+    <!-- INDIVIDUALS – ASPECT 3: QUALITY ASSURANCE   -->
+
+
+    <!-- Visual Inspection -->
+    <owl:NamedIndividual rdf:about="&auto;ScratchCheck">
+        <rdf:type rdf:resource="&auto;VisualInspection"/>
+        <rdfs:label>Paint Scratch Audit</rdfs:label>
+        <rdfs:comment> Inspection process identifying scratches and paint surface defects.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;AlignmentCheck">
+        <rdf:type rdf:resource="&auto;VisualInspection"/>
+        <rdfs:label>Interior Trim Alignment</rdfs:label>
+        <rdfs:comment>Ensures proper fitting and alignment of interior components.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- Dimensional Inspection -->
+    <owl:NamedIndividual rdf:about="&auto;CMMMeasurement">
+        <rdf:type rdf:resource="&auto;DimensionalInspection"/>
+        <rdfs:label>CMM Measurement</rdfs:label>
+        <rdfs:comment>High-precision measurement using coordinate measuring machines.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;CaliperMeasurement">
+        <rdf:type rdf:resource="&auto;DimensionalInspection"/>
+        <rdfs:label>Caliper Measurement</rdfs:label>
+        <rdfs:comment>Manual measurement tool used for checking dimensions accurately.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+    <!-- FMEA -->
+    <owl:NamedIndividual rdf:about="&auto;BrakeFailureModeAnalysis">
+        <rdf:type rdf:resource="&auto;FailureModeEffectAnalysis"/>
+        <rdfs:label>Brake Failure Mode Analysis</rdfs:label>
+        <rdfs:comment>Evaluates potential causes and effects of brake failures.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;BatteryThermalRunawayStudy">
+        <rdf:type rdf:resource="&auto;FailureModeEffectAnalysis"/>
+        <rdfs:label>Battery Thermal Runaway Study</rdfs:label>
+        <rdfs:comment>Analysis of overheating risks in battery systems.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- NDT -->
+    <owl:NamedIndividual rdf:about="&auto;X-RayWeldScan">
+        <rdf:type rdf:resource="&auto;NonDestructiveTesting"/>
+        <rdfs:label>X-Ray Weld Scan</rdfs:label>
+        <rdfs:comment>Non-destructive test detecting internal weld defects accurately.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;UltrasonicThicknessTest">
+        <rdf:type rdf:resource="&auto;NonDestructiveTesting"/>
+        <rdfs:label>Ultrasonic Thickness Test</rdfs:label>
+        <rdfs:comment>Uses sound waves to measure material thickness.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+    <!-- EOL Testing -->
+    <owl:NamedIndividual rdf:about="&auto;DynamometerRun">
+        <rdf:type rdf:resource="&auto;EndOfLineTesting"/>
+        <rdfs:label>Dynamometer Run</rdfs:label>
+        <rdfs:comment>Tests engine performance under controlled load conditions.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;WaterLeakShowerTest">
+        <rdf:type rdf:resource="&auto;EndOfLineTesting"/>
+        <rdfs:label>Water Leak Shower Test</rdfs:label>
+        <rdfs:comment>Simulates rain to detect water leakage issues.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- INDIVIDUALS – ASPECT 4: COMPLIANCE AND REGULATIONS -->
+
+
+    <!-- Quality Management Standards -->
+    <owl:NamedIndividual rdf:about="&auto;ISO/TS16949">
+        <rdf:type rdf:resource="&auto;QualityManagementStandard"/>
+        <rdfs:label>ISO/TS 16949</rdfs:label>
+        <rdfs:comment>International standard for automotive quality management systems.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;ISO9001">
+        <rdf:type rdf:resource="&auto;QualityManagementStandard"/>
+        <rdfs:label>ISO 9001</rdfs:label>
+        <rdfs:comment>Widely used standard for ensuring consistent quality management.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+    <!-- Emission Standards -->
+    <owl:NamedIndividual rdf:about="&auto;Euro3">
+        <rdf:type rdf:resource="&auto;EmissionStandard"/>
+        <rdfs:label>Euro 3</rdfs:label>
+        <rdfs:comment>Emission standard limiting harmful exhaust gases from vehicles.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;Euro4">
+        <rdf:type rdf:resource="&auto;EmissionStandard"/>
+        <rdfs:label>Euro 4</rdfs:label>
+        <rdfs:comment>Stricter emission standard improving environmental protection measures.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+    <!-- Safety Standards -->
+    <owl:NamedIndividual rdf:about="&auto;ISO26262">
+        <rdf:type rdf:resource="&auto;SafetyStandard"/>
+        <rdfs:label>ISO 26262</rdfs:label>
+        <rdfs:comment>Functional safety standard for automotive electrical systems.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;ASIL">
+        <rdf:type rdf:resource="&auto;SafetyStandard"/>
+        <auto:standardCode>Automotive Safety Integrity Level(ASIL)</auto:standardCode>
+        <rdfs:comment>Classification system defining automotive safety risk levels.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- Manufacturing Standards -->
+    <owl:NamedIndividual rdf:about="&auto;ASIL-A">
+        <rdf:type rdf:resource="&auto;ManufacturingStandard"/>
+        <rdfs:label>ASIL-A</rdfs:label>
+        <rdfs:comment>Lowest safety integrity level with minimal risk requirements.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;ASIL-B">
+        <rdf:type rdf:resource="&auto;ManufacturingStandard"/>
+        <rdfs:label>ASIL-B</rdfs:label>
+        <rdfs:comment>Moderate safety level requiring additional risk control measures.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- Environmental Standards -->
+    <owl:NamedIndividual rdf:about="&auto;ISO14001">
+        <rdf:type rdf:resource="&auto;EnvironmentalStandard"/>
+        <rdfs:label>ISO 14001</rdfs:label>
+        <rdfs:comment>Environmental management standard promoting sustainable industrial practices.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;EuroEmissionStds">
+        <rdf:type rdf:resource="&auto;EnvironmentalStandard"/>
+        <rdfs:label>Euro Emission Standards</rdfs:label>
+        <rdfs:comment>Regulations controlling vehicle emissions to protect environment.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- INDIVIDUALS – ASPECT 5: MAINTENANCE POLICIES -->
+
+
+    <!-- Time-Based Maintenance -->
+    <owl:NamedIndividual rdf:about="&auto;AnnualSafetyInspection">
+        <rdf:type rdf:resource="&auto;TimeBasedMaintenance"/>
+        <rdfs:label>Annual Safety Inspection</rdfs:label>
+        <rdfs:comment>Yearly inspection ensuring vehicle meets safety requirements.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;SeasonalTireSwap">
+        <rdf:type rdf:resource="&auto;TimeBasedMaintenance"/>
+        <rdfs:label>Seasonal Tire Swap</rdfs:label>
+        <rdfs:comment>Changing tires according to seasonal driving conditions.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- FFM -->
+    <owl:NamedIndividual rdf:about="&auto;BackupCameraTest">
+        <rdf:type rdf:resource="&auto;FailureFindingMaintenance"/>
+        <rdfs:label>Backup Camera Test</rdfs:label>
+        <rdfs:comment>Checks proper functioning of rear-view camera system.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;FireExtinguisherCheck">
+        <rdf:type rdf:resource="&auto;FailureFindingMaintenance"/>
+        <rdfs:label>Fire Extinguisher Check</rdfs:label>
+        <rdfs:comment>Ensures fire safety equipment is functional and accessible.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- RBM -->
+    <owl:NamedIndividual rdf:about="&auto;CriticalBoltInspection">
+        <rdf:type rdf:resource="&auto;RiskBasedMaintenance"/>
+        <rdfs:label>Critical Bolt Inspection</rdfs:label>
+        <rdfs:comment>Checks tightness and condition of important structural bolts.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;FleetBrakeTesting">
+        <rdf:type rdf:resource="&auto;RiskBasedMaintenance"/>
+        <rdfs:label>Fleet Brake Testing</rdfs:label>
+        <rdfs:comment>Regular testing of braking systems across vehicle fleets.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+    <!-- CBM -->
+    <owl:NamedIndividual rdf:about="&auto;OilLifeMonitorAlert">
+        <rdf:type rdf:resource="&auto;ConditionBasedMaintenance"/>
+        <rdfs:label>Oil Life Monitor Alert</rdfs:label>
+        <rdfs:comment>System indicating when engine oil needs replacement.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;TirePressureWarning">
+        <rdf:type rdf:resource="&auto;ConditionBasedMaintenance"/>
+        <rdfs:label>Tire Pressure Warning</rdfs:label>
+        <rdfs:comment>Alerts driver when tire pressure is too low.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+    <!-- Usage-Based Maintenance -->
+    <owl:NamedIndividual rdf:about="&auto;OilChange">
+        <rdf:type rdf:resource="&auto;UsageBasedMaintenance"/>
+        <rdfs:label>10k Mile Oil Change</rdfs:label>
+        <rdfs:comment>Scheduled oil replacement after specific driving distance.</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&auto;BeltSwap">
+        <rdf:type rdf:resource="&auto;UsageBasedMaintenance"/>
+        <rdfs:label>60k Mile Timing Belt Swap</rdfs:label>
+        <rdfs:comment>Replacement of timing belt to prevent engine failure.</rdfs:comment>
+    </owl:NamedIndividual>
+
+
+
+
+
+    <!-- OBJECT PROPERTY ASSERTIONS (relationships)-->
+
+    <!-- Engine components are produced via welding and assembly -->
+    <rdf:Description rdf:about="&auto;FerrariV12">
+        <auto:isProducedBy rdf:resource="&auto;EngineMarriage"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;BMWS70_2">
+        <auto:isProducedBy rdf:resource="&auto;EngineMarriage"/>
+    </rdf:Description>
+
+     <!-- Braking system parts installed during assembly -->
+    <rdf:Description rdf:about="&auto;DiscBrake">
+        <auto:isProducedBy rdf:resource="&auto;DashboardInstallation"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;DrumBrake">
+        <auto:isProducedBy rdf:resource="&auto;DashboardInstallation"/>
+    </rdf:Description>
+    <!-- Suspension components formed via stamping and fitted during assembly -->
+    <rdf:Description rdf:about="&auto;MacPhersonStrut">
+        <auto:isProducedBy rdf:resource="&auto;OuterPanelStamping"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;DoubleWishbone">
+        <auto:isProducedBy rdf:resource="&auto;DoorInnerFramePress"/>
+    </rdf:Description>
+
+    <!-- Electrical components assembled and wired during assembly process -->
+    <rdf:Description rdf:about="&auto;LeadAcidBattery">
+        <auto:isProducedBy rdf:resource="&auto;DashboardInstallation"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;LithiumIonBattery">
+        <auto:isProducedBy rdf:resource="&auto;DashboardInstallation"/>
+    </rdf:Description>
+
+    <!-- Fuel components connected during engine marriage -->
+    <rdf:Description rdf:about="&auto;HighPressureFuelRail">
+        <auto:isProducedBy rdf:resource="&auto;EngineMarriage"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;DirectInjector">
+        <auto:isProducedBy rdf:resource="&auto;EngineMarriage"/>
+    </rdf:Description>
+
+    <!-- Engines undergo dynamometer and FMEA testing -->
+    <rdf:Description rdf:about="&auto;FerrariV12">
+        <auto:undergoesTesting rdf:resource="&auto;DynamometerRun"/>
+        <auto:undergoesTesting rdf:resource="&auto;BrakeFailureModeAnalysis"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;BMWS70_2">
+        <auto:undergoesTesting rdf:resource="&auto;DynamometerRun"/>
+    </rdf:Description>
+
+     <!-- Braking system components undergo FMEA and CMM checks -->
+    <rdf:Description rdf:about="&auto;DiscBrake">
+        <auto:undergoesTesting rdf:resource="&auto;BrakeFailureModeAnalysis"/>
+        <auto:undergoesTesting rdf:resource="&auto;CMMMeasurement"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;DrumBrake">
+        <auto:undergoesTesting rdf:resource="&auto;BrakeFailureModeAnalysis"/>
+        <auto:undergoesTesting rdf:resource="&auto;CaliperMeasurement"/>
+    </rdf:Description>
+
+    <!-- Suspension checked via dimensional inspection and visual audit -->
+    <rdf:Description rdf:about="&auto;MacPhersonStrut">
+        <auto:undergoesTesting rdf:resource="&auto;CMMMeasurement"/>
+        <auto:undergoesTesting rdf:resource="&auto;UltrasonicThicknessTest"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;DoubleWishbone">
+        <auto:undergoesTesting rdf:resource="&auto;CaliperMeasurement"/>
+        <auto:undergoesTesting rdf:resource="&auto;XRayWeldScan"/>
+    </rdf:Description>
+
+    <!-- Electrical components undergo EOL electrical test and thermal FMEA -->
+    <rdf:Description rdf:about="&auto;LeadAcidBattery">
+        <auto:undergoesTesting rdf:resource="&auto;DynamometerRun"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;LithiumIonBattery">
+        <auto:undergoesTesting rdf:resource="&auto;BatteryThermalRunawayStudy"/>
+        <auto:undergoesTesting rdf:resource="&auto;DynamometerRun"/>
+    </rdf:Description>
+
+    <!-- Fuel components tested at EOL and inspected via visual audit -->
+    <rdf:Description rdf:about="&auto;HighPressureFuelRail">
+        <auto:undergoesTesting rdf:resource="&auto;WaterLeakShowerTest"/>
+        <auto:undergoesTesting rdf:resource="&auto;CaliperMeasurement"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;DirectInjector">
+        <auto:undergoesTesting rdf:resource="&auto;DynamometerRun"/>
+        <auto:undergoesTesting rdf:resource="&auto;ScratchCheck"/>
+    </rdf:Description>
+
+    <!-- Engines need oil changes and belt swaps -->
+    <rdf:Description rdf:about="&auto;FerrariV12">
+        <auto:requiresMaintenance rdf:resource="&auto;OilChange"/>
+        <auto:requiresMaintenance rdf:resource="&auto;BeltSwap"/>
+        <auto:requiresMaintenance rdf:resource="&auto;OilLifeMonitorAlert"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;BMWS70_2">
+        <auto:requiresMaintenance rdf:resource="&auto;OilChange"/>
+        <auto:requiresMaintenance rdf:resource="&auto;BeltSwap"/>
+    </rdf:Description>
+
+     <!-- Braking system requires regular inspection and risk-based testing -->
+    <rdf:Description rdf:about="&auto;DiscBrake">
+        <auto:requiresMaintenance rdf:resource="&auto;FleetBrakeTesting"/>
+        <auto:requiresMaintenance rdf:resource="&auto;AnnualSafetyInspection"/>
+        <auto:requiresMaintenance rdf:resource="&auto;CriticalBoltInspection"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;DrumBrake">
+        <auto:requiresMaintenance rdf:resource="&auto;FleetBrakeTesting"/>
+        <auto:requiresMaintenance rdf:resource="&auto;AnnualSafetyInspection"/>
+    </rdf:Description>
+
+    <!-- Suspension requires annual inspection and bolt torque checks -->
+    <rdf:Description rdf:about="&auto;MacPhersonStrut">
+        <auto:requiresMaintenance rdf:resource="&auto;CriticalBoltInspection"/>
+        <auto:requiresMaintenance rdf:resource="&auto;AnnualSafetyInspection"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;DoubleWishbone">
+        <auto:requiresMaintenance rdf:resource="&auto;CriticalBoltInspection"/>
+        <auto:requiresMaintenance rdf:resource="&auto;AnnualSafetyInspection"/>
+    </rdf:Description>
+
+    <!-- Electrical system benefits from CBM and seasonal checks -->
+    <rdf:Description rdf:about="&auto;LeadAcidBattery">
+        <auto:requiresMaintenance rdf:resource="&auto;AnnualSafetyInspection"/>
+        <auto:requiresMaintenance rdf:resource="&auto;SeasonalTireSwap"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;LithiumIonBattery">
+        <auto:requiresMaintenance rdf:resource="&auto;OilLifeMonitorAlert"/>
+        <auto:requiresMaintenance rdf:resource="&auto;TirePressureWarning"/>
+    </rdf:Description>
+
+    <!-- Fuel system needs usage-based and CBM maintenance -->
+    <rdf:Description rdf:about="&auto;HighPressureFuelRail">
+        <auto:requiresMaintenance rdf:resource="&auto;OilChange"/>
+        <auto:requiresMaintenance rdf:resource="&auto;OilLifeMonitorAlert"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;DirectInjector">
+        <auto:requiresMaintenance rdf:resource="&auto;OilChange"/>
+        <auto:requiresMaintenance rdf:resource="&auto;BeltSwap"/>
+    </rdf:Description>
+
+    <!-- Welding must meet quality and safety standards -->
+    <rdf:Description rdf:about="&auto;SpotWelding">
+        <auto:complyWith rdf:resource="&auto;ISO_TS16949"/>
+        <auto:complyWith rdf:resource="&auto;ISO26262"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;RoofWelding">
+        <auto:complyWith rdf:resource="&auto;ISO9001"/>
+        <auto:complyWith rdf:resource="&auto;ASIL-A"/>
+    </rdf:Description>
+
+    <!-- Assembly must comply with quality and functional safety standards -->
+    <rdf:Description rdf:about="&auto;EngineMarriage">
+        <auto:complyWith rdf:resource="&auto;ISO_TS16949"/>
+        <auto:complyWith rdf:resource="&auto;ISO26262"/>
+        <auto:complyWith rdf:resource="&auto;ASIL-B"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;DashboardInstallation">
+        <auto:complyWith rdf:resource="&auto;ISO9001"/>
+        <auto:complyWith rdf:resource="&auto;ASIL-A"/>
+    </rdf:Description>
+
+    <!-- Inspection must comply with quality management standards -->
+    <rdf:Description rdf:about="&auto;InlineLaserScan">
+        <auto:complyWith rdf:resource="&auto;ISO_TS16949"/>
+        <auto:complyWith rdf:resource="&auto;ISO9001"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="&auto;GapAndFlushCheck">
+        <auto:complyWith rdf:resource="&auto;ISO9001"/>
+    </rdf:Description>
+
+</rdf:RDF>
